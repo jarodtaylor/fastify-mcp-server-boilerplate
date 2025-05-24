@@ -1,7 +1,7 @@
 {
   "name": "fastify-mcp-server-boilerplate",
   "version": "1.0.0",
-  "description": "Production-ready MCP server boilerplate built with Fastify, TypeScript, and modern tooling",
+  "description": "Production-ready MCP server boilerplate: Fastify + TypeScript + Biome + tsup (esbuild) + Docker. No ESLint/Prettier needed.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -38,5 +38,30 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol", 
+    "fastify",
+    "typescript",
+    "biome",
+    "tsup",
+    "esbuild",
+    "boilerplate",
+    "server",
+    "cursor-ide",
+    "claude-desktop",
+    "ai-tools",
+    "docker",
+    "esm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/fastify-mcp-server-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/fastify-mcp-server-boilerplate/issues"
+  },
+  "homepage": "https://github.com/your-username/fastify-mcp-server-boilerplate#readme",
+  "license": "MIT"
 }

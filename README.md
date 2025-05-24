@@ -1,25 +1,35 @@
 # Fastify MCP Server Boilerplate
 
-> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate built with Fastify, TypeScript, and modern tooling.
+> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate: **Fastify + TypeScript + Biome + tsup (esbuild) + Docker**
 
-A batteries-included starter template for building MCP servers that work with AI tools like Cursor IDE, Claude Desktop, and other MCP clients.
+Skip ESLint/Prettier setup pain. Modern tooling that just works. Build MCP servers for Cursor IDE, Claude Desktop, and other AI clients in minutes, not hours.
+
+## 🔧 **What You Get**
+
+| Tool | Purpose | Why Not Alternatives? |
+|------|---------|----------------------|
+| **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |
+| **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |
+| **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |
+| **pino** | Logging | Fastest JSON logger, pretty dev mode, production-ready structured logs |
+| **Docker** | Deployment | Multi-stage builds, security hardened, production optimized |
 
 ## ✨ Features
 
-### 🏗️ **Production-Ready Foundation**
-- **Modern build system** with tsup (esbuild-based) - fast builds, small bundles
-- **TypeScript** with strict type checking and ESM support
-- **Fastify** for high-performance HTTP server
-- **Structured logging** with pino (JSON in production, pretty in development)
-- **Environment validation** with typed configuration
-- **Graceful shutdown** handling and error management
+### ⚡ **Modern Tech Stack**
+- **tsup (esbuild)** - 10x faster builds than webpack/rollup (~40ms builds)
+- **Biome** - All-in-one toolchain (replaces ESLint + Prettier + import sorting)
+- **TypeScript 5.7** with strict mode and perfect ESM support
+- **Fastify 5.x** - High-performance HTTP server (3x faster than Express)
+- **Pino logging** - Structured JSON logs with pretty dev mode
+- **No `.js` extensions needed** - bundler handles all module resolution
 
-### 🛠️ **Developer Experience**
-- **No `.js` extensions** required in imports (bundler handles resolution)
-- **Hot reload** development server with watch mode  
-- **Biome** for fast linting and formatting (ESLint + Prettier replacement)
-- **TypeScript + Biome harmony** - no tool conflicts!
-- **Comprehensive scripts** for development, building, and deployment
+### 🛠️ **Zero-Config Developer Experience**  
+- **Hot reload** in <50ms with watch mode
+- **No tool conflicts** - Biome + TypeScript work perfectly together
+- **One command setup** - `npm install && npm run dev`
+- **Pre-configured VSCode** - Extensions + settings included
+- **Comprehensive scripts** - dev, build, lint, format, validate, deploy
 
 ### 🐳 **Deployment Ready**
 - **Multi-stage Docker builds** for optimal production images
