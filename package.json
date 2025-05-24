@@ -1,7 +1,7 @@
 {
   "name": "fastify-mcp-server-boilerplate",
   "version": "1.0.0",
-  "description": "Production-ready MCP server boilerplate: Fastify + TypeScript + Biome + tsup (esbuild) + Docker. No ESLint/Prettier needed.",
+  "description": "Production-ready MCP server boilerplate: fastify-mcp + TypeScript + Biome + tsup (esbuild) + Docker. No ESLint/Prettier setup needed.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "typescript": "^5.7.2"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18.0.0"=
   },
   "keywords": [
     "mcp",

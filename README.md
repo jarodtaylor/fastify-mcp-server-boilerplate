@@ -1,13 +1,14 @@
 # Fastify MCP Server Boilerplate
 
-> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate: **Fastify + TypeScript + Biome + tsup (esbuild) + Docker**
+> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate: **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp) + TypeScript + Biome + tsup (esbuild) + Docker**
 
-Skip ESLint/Prettier setup pain. Modern tooling that just works. Build MCP servers for Cursor IDE, Claude Desktop, and other AI clients in minutes, not hours.
+Skip ESLint/Prettier setup pain. Built on [fastify-mcp](https://github.com/haroldadmin/fastify-mcp) for robust MCP protocol handling. Modern tooling that just works. Build MCP servers for Cursor IDE, Claude Desktop, and other AI clients in minutes, not hours.
 
 ## 🔧 **What You Get**
 
 | Tool | Purpose | Why Not Alternatives? |
 |------|---------|----------------------|
+| **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp)** | MCP Protocol Integration | Handles all MCP server logic, session management, and transports. The heavy lifter! |
 | **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |
 | **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |
 | **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |
@@ -356,6 +357,19 @@ Building production-ready MCP servers requires setting up build tools, linting, 
 - 🚀 Rapid prototyping of MCP servers
 - 📦 Learning MCP development with best practices
 - 🏢 Production MCP server deployments
+
+## 🙏 Acknowledgments
+
+This boilerplate is built on top of excellent open source work:
+
+- **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp)** by [@haroldadmin](https://github.com/haroldadmin) - The core MCP integration that makes this all possible. Handles protocol implementation, session management, and transport layers.
+- **[Fastify](https://github.com/fastify/fastify)** - High-performance web framework
+- **[Biome](https://github.com/biomejs/biome)** - Modern toolchain for linting and formatting
+- **[tsup](https://github.com/egoist/tsup)** - Fast bundler powered by esbuild
+
+## 📄 License
+
+MIT License - feel free to use this boilerplate for your projects!
 
 ---
 
