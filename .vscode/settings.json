@@ -1,0 +1,49 @@
+{
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Biome as default formatter
+  "editor.defaultFormatter": "@biomejs/biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "quickfix.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+
+  // File associations
+  "[typescript]": {
+    "editor.defaultFormatter": "@biomejs/biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "@biomejs/biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "@biomejs/biome"
+  },
+
+  // TypeScript validation
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
+
+  // Biome extension settings
+  "biome.lspBin": "./node_modules/@biomejs/biome/bin/biome",
+
+  // Disable conflicting formatters
+  "prettier.enable": false,
+  "eslint.enable": false,
+
+  // File exclusions
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+
+  // Search exclusions
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/package-lock.json": true
+  }
+}
