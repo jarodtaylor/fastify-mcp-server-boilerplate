@@ -9,7 +9,7 @@ import {
 export function createMcpServer(): Server {
   const server = new Server(
     {
-      name: "mcp-server-boilerplate",
+      name: "fastify-mcp-server-boilerplate",
       version: "1.0.0",
     },
     {

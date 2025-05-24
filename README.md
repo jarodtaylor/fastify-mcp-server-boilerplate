@@ -1,6 +1,6 @@
-# MCP Server Boilerplate
+# Fastify MCP Server Boilerplate
 
-> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate with TypeScript, Fastify, and modern tooling.
+> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate built with Fastify, TypeScript, and modern tooling.
 
 A batteries-included starter template for building MCP servers that work with AI tools like Cursor IDE, Claude Desktop, and other MCP clients.
 
@@ -40,7 +40,7 @@ A batteries-included starter template for building MCP servers that work with AI
 
 ```bash
 # Clone this boilerplate (replace with your repo name)
-git clone https://github.com/your-username/mcp-server-boilerplate.git my-mcp-server
+git clone https://github.com/your-username/fastify-mcp-server-boilerplate.git my-mcp-server
 cd my-mcp-server
 
 # Install dependencies
@@ -229,7 +229,7 @@ docker run -d \
 ## 📁 Project Structure
 
 ```
-mcp-server-boilerplate/
+fastify-mcp-server-boilerplate/
 ├── src/
 │   ├── index.ts           # Main server entry point
 │   ├── mcp-server.ts      # MCP server implementation  
@@ -262,7 +262,7 @@ curl http://localhost:8080/health
   "status": "ok",
   "timestamp": "2024-01-01T00:00:00.000Z",
   "version": "1.0.0", 
-  "name": "mcp-server-boilerplate",
+  "name": "fastify-mcp-server-boilerplate",
   "uptime": "123s",
   "memory": {
     "rss": "45MB",

@@ -1,6 +1,6 @@
 # Getting Started Guide
 
-This guide will walk you through customizing the MCP server boilerplate for common use cases.
+This guide will walk you through customizing the Fastify MCP server boilerplate for common use cases.
 
 ## 🎯 Common Use Cases
 

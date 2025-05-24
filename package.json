@@ -1,7 +1,7 @@
 {
-  "name": "mcp-server-boilerplate",
+  "name": "fastify-mcp-server-boilerplate",
   "version": "1.0.0",
-  "description": "Production-ready MCP server boilerplate with TypeScript, Fastify, and modern tooling",
+  "description": "Production-ready MCP server boilerplate built with Fastify, TypeScript, and modern tooling",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
