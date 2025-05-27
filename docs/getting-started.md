@@ -2,7 +2,7 @@
 
 This guide will walk you through customizing the Fastify MCP server boilerplate for common use cases.
 
-## 🎯 Common Use Cases
+## Common Use Cases
 
 ### 1. **File System Tools**
 Perfect for tools that help AI assistants work with files and directories.
@@ -19,7 +19,7 @@ Build developer productivity tools for IDEs like Cursor.
 ### 5. **Content Processing**
 Tools for processing text, images, or other content.
 
-## 🚀 Step-by-Step Examples
+## Step-by-Step Examples
 
 ### Example 1: File Reader Tool
 
@@ -272,7 +272,7 @@ server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
 });
 ```
 
-## 🔧 Advanced Configuration
+## Advanced Configuration
 
 ### Adding Authentication
 
@@ -342,7 +342,7 @@ app.addHook('onResponse', async (request, reply) => {
 });
 ```
 
-## 🧪 Testing Your Tools
+## Testing Your Tools
 
 ### Manual Testing with curl
 
@@ -390,7 +390,7 @@ const result = await client.callTool({
 console.log('Tool result:', result);
 ```
 
-## 📦 Publishing Your MCP Server
+## Publishing Your MCP Server
 
 ### 1. **Prepare for Distribution**
 
@@ -435,14 +435,3 @@ git push origin v1.0.0
 # Publish to npm (optional)
 npm publish
 ```
-
-## 🎯 Next Steps
-
-1. **Choose your use case** from the examples above
-2. **Implement your first tool** following the patterns
-3. **Test thoroughly** with your MCP client
-4. **Add proper error handling** and validation
-5. **Document your tools** for other users
-6. **Deploy to production** using the Docker setup
-
-Remember: Start simple with one tool, then expand from there. The boilerplate provides all the infrastructure - focus on your unique functionality! 
