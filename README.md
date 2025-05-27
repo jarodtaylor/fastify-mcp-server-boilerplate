@@ -2,7 +2,7 @@
 > Production-ready Model Context Protocol (MCP) server boilerplate: fastify-mcp + TypeScript + Biome + tsup (esbuild) + Docker
 > 
 
-Skip ESLint/Prettier setup pain. Built on [fastify-mcp](https://github.com/haroldadmin/fastify-mcp) for robust MCP protocol handling. Modern tooling that just works. Build MCP servers for Cursor IDE, Claude Desktop, and other AI clients in minutes, not hours.
+Built on [fastify-mcp](https://github.com/haroldadmin/fastify-mcp) for robust MCP protocol handling. 
 
 ## **What You Get**
 
