@@ -2,6 +2,7 @@ import { fastify } from "fastify";
 import { streamableHttp } from "fastify-mcp";
 import { createConfig } from "./config";
 import { createMcpServer } from "./mcp-server";
+import { registerSecurityMiddleware } from "./middleware";
 
 const config = createConfig();
 
@@ -29,6 +30,16 @@ app.addHook("onRequest", async (request) => {
   request.id = crypto.randomUUID();
 });
 
+// Register security middleware
+registerSecurityMiddleware(app, {
+  enableAuth: config.enableAuth,
+  apiKey: config.apiKey,
+  enableRateLimit: config.enableRateLimit,
+  maxRequestsPerMinute: config.maxRequestsPerMinute,
+  enableRequestLogging: config.enableRequestLogging,
+  trustedOrigins: config.trustedOrigins,
+});
+
 // Register the Streamable HTTP transport
 await app.register(streamableHttp, {
   stateful: false, // Set to true if you need stateful sessions
@@ -53,6 +64,24 @@ app.get(config.healthEndpoint, async () => {
       heapTotal: `${Math.round(memoryUsage.heapTotal / 1024 / 1024)}MB`,
     },
     environment: config.nodeEnv,
+  };
+});
+
+// Security monitoring endpoint (requires authentication if enabled)
+app.get("/security/events", async (request, reply) => {
+  // This endpoint requires API key if auth is enabled
+  if (config.enableAuth) {
+    const authHeader = request.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer ") || authHeader.slice(7) !== config.apiKey) {
+      reply.status(401).send({ error: "Unauthorized" });
+      return;
+    }
+  }
+  
+  const { getSecurityLog } = await import("./security");
+  return {
+    events: getSecurityLog(),
+    totalEvents: getSecurityLog().length,
   };
 });
 

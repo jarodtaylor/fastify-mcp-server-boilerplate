@@ -17,6 +17,13 @@ export interface Config {
   healthEndpoint: string;
   version: string;
   name: string;
+  // Security configuration
+  enableAuth: boolean;
+  apiKey: string | undefined;
+  enableRateLimit: boolean;
+  maxRequestsPerMinute: number;
+  enableRequestLogging: boolean;
+  trustedOrigins: string[];
 }
 
 function getEnvVar(key: string, defaultValue?: string): string {
@@ -62,6 +69,13 @@ export function createConfig(): Config {
     healthEndpoint: getEnvVar("HEALTH_ENDPOINT", "/health"),
     version: packageJson.version,
     name: packageJson.name,
+    // Security configuration
+    enableAuth: getEnvVar("ENABLE_AUTH", "false") === "true",
+    apiKey: process.env.API_KEY,
+    enableRateLimit: getEnvVar("ENABLE_RATE_LIMIT", "true") === "true",
+    maxRequestsPerMinute: getEnvNumber("MAX_REQUESTS_PER_MINUTE", 100),
+    enableRequestLogging: getEnvVar("ENABLE_REQUEST_LOGGING", "true") === "true",
+    trustedOrigins: getEnvVar("TRUSTED_ORIGINS", "").split(",").filter(Boolean),
   };
 
   // Validate log level

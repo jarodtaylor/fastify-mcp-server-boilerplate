@@ -5,6 +5,7 @@ import {
   ListToolsRequestSchema,
   ReadResourceRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
+import { checkRateLimit, logSecurityEvent, sanitizeInput } from "./security.js";
 
 export function createMcpServer(): Server {
   const server = new Server(
@@ -58,21 +59,56 @@ export function createMcpServer(): Server {
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const { name, arguments: args } = request.params;
 
+    // Rate limiting - use tool name as identifier for simplicity
+    // In production, you might want to use client IP or session ID
+    if (!checkRateLimit(`tool:${name}`, 50, 60000)) {
+      logSecurityEvent({
+        event: "rate_limit_exceeded",
+        identifier: name,
+        details: { tool: name, args },
+        severity: "medium",
+      });
+      throw new Error("Rate limit exceeded. Please try again later.");
+    }
+
     switch (name) {
       case "hello_world": {
-        const nameToGreet = args?.name as string;
-        const greeting = nameToGreet
-          ? `Hello, ${nameToGreet}! Welcome to your MCP server.`
-          : "Hello, World! Your MCP server is working correctly.";
+        try {
+          const nameToGreet = args?.name as string;
+          
+          // Sanitize input if provided
+          const safeName = nameToGreet ? sanitizeInput(nameToGreet, 50) : null;
+          
+          const greeting = safeName
+            ? `Hello, ${safeName}! Welcome to your MCP server.`
+            : "Hello, World! Your MCP server is working correctly.";
 
-        return {
-          content: [
-            {
-              type: "text",
-              text: greeting,
-            },
-          ],
-        };
+          return {
+            content: [
+              {
+                type: "text",
+                text: greeting,
+              },
+            ],
+          };
+        } catch (error) {
+          logSecurityEvent({
+            event: "input_validation_failed",
+            identifier: "hello_world",
+            details: { args, error: error instanceof Error ? error.message : "Unknown" },
+            severity: "medium",
+          });
+          
+          return {
+            content: [
+              {
+                type: "text",
+                text: "Error: Invalid input provided. Please ensure your input contains only safe characters.",
+              },
+            ],
+            isError: true,
+          };
+        }
       }
 
       // Add more tool implementations here

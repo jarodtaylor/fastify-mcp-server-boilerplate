@@ -27,7 +27,8 @@
     "fastify": "^5.1.0",
     "fastify-mcp": "^2.0.0",
     "pino": "^9.7.0",
-    "pino-pretty": "^13.0.0"
+    "pino-pretty": "^13.0.0",
+    "zod": "^3.25.30"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -37,11 +38,11 @@
     "typescript": "^5.7.2"
   },
   "engines": {
-    "node": ">=18.0.0"=
+    "node": ">=18.0.0"
   },
   "keywords": [
     "mcp",
-    "model-context-protocol", 
+    "model-context-protocol",
     "fastify",
     "typescript",
     "biome",
