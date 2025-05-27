@@ -1,23 +1,24 @@
 # Fastify MCP Server Boilerplate
-
-> 🚀 Production-ready Model Context Protocol (MCP) server boilerplate: **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp) + TypeScript + Biome + tsup (esbuild) + Docker**
+> Production-ready Model Context Protocol (MCP) server boilerplate: fastify-mcp + TypeScript + Biome + tsup (esbuild) + Docker
+> 
 
 Skip ESLint/Prettier setup pain. Built on [fastify-mcp](https://github.com/haroldadmin/fastify-mcp) for robust MCP protocol handling. Modern tooling that just works. Build MCP servers for Cursor IDE, Claude Desktop, and other AI clients in minutes, not hours.
 
-## 🔧 **What You Get**
+## **What You Get**
 
-| Tool | Purpose | Why Not Alternatives? |
-|------|---------|----------------------|
-| **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp)** | MCP Protocol Integration | Handles all MCP server logic, session management, and transports. The heavy lifter! |
-| **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |
-| **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |
-| **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |
-| **pino** | Logging | Fastest JSON logger, pretty dev mode, production-ready structured logs |
-| **Docker** | Deployment | Multi-stage builds, security hardened, production optimized |
+| Tool | Purpose | Why Not Alternatives? |  |
+| --- | --- | --- | --- |
+| [**fastify-mcp**](https://github.com/haroldadmin/fastify-mcp) | MCP Protocol Integration | Handles all MCP server logic, session management, and transports. The heavy lifter! |  |
+| **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |  |
+| **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |  |
+| **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |  |
+| **pino** | Logging | Fastest JSON logger, pretty dev mode, production-ready structured logs |  |
+| **Docker** | Deployment | Multi-stage builds, security hardened, production optimized |  |
 
-## ✨ Features
+## Features
 
-### ⚡ **Modern Tech Stack**
+### **Modern Tech Stack**
+
 - **tsup (esbuild)** - 10x faster builds than webpack/rollup (~40ms builds)
 - **Biome** - All-in-one toolchain (replaces ESLint + Prettier + import sorting)
 - **TypeScript 5.7** with strict mode and perfect ESM support
@@ -25,33 +26,36 @@ Skip ESLint/Prettier setup pain. Built on [fastify-mcp](https://github.com/harol
 - **Pino logging** - Structured JSON logs with pretty dev mode
 - **No `.js` extensions needed** - bundler handles all module resolution
 
-### 🛠️ **Zero-Config Developer Experience**  
+### **Zero-Config Developer Experience**
+
 - **Hot reload** in <50ms with watch mode
 - **No tool conflicts** - Biome + TypeScript work perfectly together
 - **One command setup** - `npm install && npm run dev`
 - **Pre-configured VSCode** - Extensions + settings included
 - **Comprehensive scripts** - dev, build, lint, format, validate, deploy
 
-### 🐳 **Deployment Ready**
+### **Deployment Ready**
+
 - **Multi-stage Docker builds** for optimal production images
 - **Docker Compose** configurations for development and production
 - **Health checks** with detailed system metrics
 - **Environment-based configuration** (development/production)
 - **Non-root container** user for security
 
-### 📊 **Observability**
+### **Observability**
+
 - **Request tracing** with unique request IDs
 - **Health endpoint** with memory usage and uptime metrics
 - **Structured logging** ready for log aggregation (ELK, etc.)
 - **Error handling** with proper HTTP status codes
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. **Clone and Setup**
 
 ```bash
 # Clone this boilerplate (replace with your repo name)
-git clone https://github.com/your-username/fastify-mcp-server-boilerplate.git my-mcp-server
+git clone <https://github.com/your-username/fastify-mcp-server-boilerplate.git> my-mcp-server
 cd my-mcp-server
 
 # Install dependencies
@@ -59,6 +63,7 @@ npm install
 
 # Copy environment file
 cp env.example .env
+
 ```
 
 ### 2. **Start Development**
@@ -67,20 +72,23 @@ cp env.example .env
 # Start development server with hot reload
 npm run dev
 
-# Your server is now running at http://localhost:8080
-# Health check: http://localhost:8080/health
-# MCP endpoint: http://localhost:8080/mcp
+# Your server is now running at <http://localhost:8080>
+# Health check: <http://localhost:8080/health>
+# MCP endpoint: <http://localhost:8080/mcp>
+
 ```
 
 ### 3. **Test with MCP Client**
 
 **Using Cursor IDE:**
+
 1. Open Cursor IDE settings
 2. Add MCP server configuration:
-   - Transport: HTTP (Streamable)
-   - URL: `http://localhost:8080/mcp`
+    - Transport: HTTP (Streamable)
+    - URL: `http://localhost:8080/mcp`
 
 **Using Claude Desktop:**
+
 ```json
 {
   "mcpServers": {
@@ -94,15 +102,16 @@ npm run dev
     }
   }
 }
+
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Adding Your First Tool
 
 Edit `src/mcp-server.ts` and add your tool:
 
-```typescript
+```tsx
 // In the tools array
 {
   name: "my_awesome_tool",
@@ -122,10 +131,10 @@ Edit `src/mcp-server.ts` and add your tool:
 // In the tool handler switch statement
 case "my_awesome_tool": {
   const input = args?.input as string;
-  
+
   // Your tool logic here
   const result = processInput(input);
-  
+
   return {
     content: [{
       type: "text",
@@ -133,11 +142,12 @@ case "my_awesome_tool": {
     }]
   };
 }
+
 ```
 
 ### Adding Resources
 
-```typescript
+```tsx
 // In the resources array
 {
   uri: "my-app://data",
@@ -146,25 +156,26 @@ case "my_awesome_tool": {
   mimeType: "application/json"
 }
 
-// In the resource handler switch statement  
+// In the resource handler switch statement
 case "my-app://data": {
   const data = await fetchMyData();
-  
+
   return {
     contents: [{
       uri,
-      mimeType: "application/json", 
+      mimeType: "application/json",
       text: JSON.stringify(data, null, 2)
     }]
   };
 }
+
 ```
 
 ### Environment Configuration
 
 Add your environment variables to `src/config.ts`:
 
-```typescript
+```tsx
 export interface Config {
   // ... existing config
   myApiKey: string;
@@ -178,72 +189,85 @@ export function createConfig(): Config {
     databaseUrl: getEnvVar("DATABASE_URL"),
   };
 }
+
 ```
 
-## 📋 Available Scripts
+## Available Scripts
 
 ### Development
+
 ```bash
-npm run dev              # Start with hot reload  
+npm run dev              # Start with hot reload
 npm run dev:debug        # Start with Node.js inspector
 npm run type-check       # TypeScript type checking only
+
 ```
 
-### Building  
+### Building
+
 ```bash
 npm run build            # Build for development
 npm run build:prod       # Build for production (minified)
 npm run clean            # Clean build directory
+
 ```
 
 ### Code Quality
+
 ```bash
 npm run lint             # Check linting rules
-npm run lint:fix         # Fix auto-fixable linting issues  
+npm run lint:fix         # Fix auto-fixable linting issues
 npm run format           # Check code formatting
 npm run format:fix       # Fix code formatting
 npm run check            # Run both linting and formatting
 npm run check:fix        # Fix all auto-fixable issues
+
 ```
 
 ### Production
+
 ```bash
 npm run start            # Start built application
 npm run validate         # Run type checking + linting
 npm run ci               # Full validation + production build
+
 ```
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Development with Docker
+
 ```bash
 # Start development environment
 docker-compose --profile dev up
 
 # Production deployment
 docker-compose up -d
+
 ```
 
 ### Manual Docker Build
+
 ```bash
 # Build production image
 docker build -t my-mcp-server .
 
 # Run container
-docker run -d \
-  --name my-mcp-server \
-  -p 8080:8080 \
-  -e NODE_ENV=production \
+docker run -d \\
+  --name my-mcp-server \\
+  -p 8080:8080 \\
+  -e NODE_ENV=production \\
   my-mcp-server
+
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 fastify-mcp-server-boilerplate/
 ├── src/
 │   ├── index.ts           # Main server entry point
-│   ├── mcp-server.ts      # MCP server implementation  
+│   ├── mcp-server.ts      # MCP server implementation
 │   └── config.ts          # Environment configuration
 ├── docs/                  # Documentation
 │   ├── extending.md       # How to add tools/resources
@@ -254,25 +278,28 @@ fastify-mcp-server-boilerplate/
 ├── Dockerfile             # Multi-stage production build
 ├── docker-compose.yml     # Container orchestration
 ├── tsup.config.ts         # Build configuration
-├── tsconfig.json          # TypeScript configuration  
+├── tsconfig.json          # TypeScript configuration
 ├── biome.json             # Linting and formatting
 └── package.json           # Dependencies and scripts
+
 ```
 
-## 🏥 Health Monitoring
+## Health Monitoring
 
 The boilerplate includes a comprehensive health endpoint:
 
 ```bash
-curl http://localhost:8080/health
+curl <http://localhost:8080/health>
+
 ```
 
 **Response:**
+
 ```json
 {
   "status": "ok",
   "timestamp": "2024-01-01T00:00:00.000Z",
-  "version": "1.0.0", 
+  "version": "1.0.0",
   "name": "fastify-mcp-server-boilerplate",
   "uptime": "123s",
   "memory": {
@@ -282,12 +309,13 @@ curl http://localhost:8080/health
   },
   "environment": "development"
 }
+
 ```
 
-## 🔧 Environment Variables
+## Environment Variables
 
 | Variable | Default | Description |
-|----------|---------|-------------|
+| --- | --- | --- |
 | `PORT` | `8080` | Server port |
 | `HOST` | `localhost` | Server host |
 | `NODE_ENV` | `development` | Environment: `development`/`production`/`test` |
@@ -295,16 +323,17 @@ curl http://localhost:8080/health
 | `MCP_ENDPOINT` | `/mcp` | MCP server endpoint path |
 | `HEALTH_ENDPOINT` | `/health` | Health check endpoint path |
 
-## 📚 Documentation
+## Documentation
 
-- **[Getting Started Guide](docs/getting-started.md)** - Step-by-step examples for common use cases
-- **[Extending the Server](docs/extending.md)** - Add custom tools and resources
-- **[Tooling Configuration](docs/tooling.md)** - TypeScript and Biome setup
-- **[Production Deployment](docs/production.md)** - Complete deployment guide
+- [**Getting Started Guide**](https://www.notion.so/jarodtaylor/docs/getting-started.md) - Step-by-step examples for common use cases
+- [**Extending the Server**](https://www.notion.so/jarodtaylor/docs/extending.md) - Add custom tools and resources
+- [**Tooling Configuration**](https://www.notion.so/jarodtaylor/docs/tooling.md) - TypeScript and Biome setup
+- [**Production Deployment**](https://www.notion.so/jarodtaylor/docs/production.md) - Complete deployment guide
 
-## 🛟 Troubleshooting
+## Troubleshooting
 
 ### Port Already in Use
+
 ```bash
 # Find process using port 8080
 lsof -i :8080
@@ -314,26 +343,31 @@ kill -9 <PID>
 
 # Or use a different port
 PORT=3000 npm run dev
+
 ```
 
 ### Build Issues
+
 ```bash
 # Clean and rebuild
 npm run clean
 npm install
 npm run build
+
 ```
 
 ### Docker Issues
+
 ```bash
 # View container logs
 docker logs mcp-server
 
 # Rebuild image
 docker build --no-cache -t my-mcp-server .
+
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork this repository
 2. Create a feature branch: `git checkout -b feature/amazing-feature`
@@ -343,31 +377,32 @@ docker build --no-cache -t my-mcp-server .
 6. Push: `git push origin feature/amazing-feature`
 7. Open a Pull Request
 
-## 📄 License
+## License
 
 MIT License - feel free to use this boilerplate for your projects!
 
-## ⭐ Why This Boilerplate?
+## Why This Boilerplate?
 
 Building production-ready MCP servers requires setting up build tools, linting, containerization, logging, error handling, and more. This boilerplate gives you all of that out of the box, so you can focus on building your MCP tools and resources instead of configuring infrastructure.
 
 **Perfect for:**
-- 🤖 Building AI-powered developer tools
-- 🔌 Creating integrations for Cursor IDE, Claude Desktop
-- 🚀 Rapid prototyping of MCP servers
-- 📦 Learning MCP development with best practices
-- 🏢 Production MCP server deployments
 
-## 🙏 Acknowledgments
+- Building AI-powered developer tools
+- Creating integrations for Cursor IDE, Claude Desktop
+- Rapid prototyping of MCP servers
+- Learning MCP development with best practices
+- Production MCP server deployments
+
+## Acknowledgments
 
 This boilerplate is built on top of excellent open source work:
 
-- **[fastify-mcp](https://github.com/haroldadmin/fastify-mcp)** by [@haroldadmin](https://github.com/haroldadmin) - The core MCP integration that makes this all possible. Handles protocol implementation, session management, and transport layers.
-- **[Fastify](https://github.com/fastify/fastify)** - High-performance web framework
-- **[Biome](https://github.com/biomejs/biome)** - Modern toolchain for linting and formatting
-- **[tsup](https://github.com/egoist/tsup)** - Fast bundler powered by esbuild
+- [**fastify-mcp**](https://github.com/haroldadmin/fastify-mcp) by [@haroldadmin](https://github.com/haroldadmin) - The core MCP integration that makes this all possible. Handles protocol implementation, session management, and transport layers.
+- [**Fastify**](https://github.com/fastify/fastify) - High-performance web framework
+- [**Biome**](https://github.com/biomejs/biome) - Modern toolchain for linting and formatting
+- [**tsup**](https://github.com/egoist/tsup) - Fast bundler powered by esbuild
 
-## 📄 License
+## License
 
 MIT License - feel free to use this boilerplate for your projects!
 
