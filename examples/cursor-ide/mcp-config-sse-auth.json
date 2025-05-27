@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fastify-mcp-boilerplate": {
+      "transport": "sse",
+      "url": "http://localhost:8080/mcp",
+      "headers": {
+        "Authorization": "Bearer your-secret-key-here"
+      },
+      "description": "Secure MCP server with authentication"
+    }
+  }
+} 
