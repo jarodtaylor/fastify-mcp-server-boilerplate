@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "fastify-mcp-boilerplate": {
+      "transport": "sse",
+      "url": "http://localhost:8080/mcp",
+      "description": "Production-ready MCP server with security features"
+    }
+  }
+} 

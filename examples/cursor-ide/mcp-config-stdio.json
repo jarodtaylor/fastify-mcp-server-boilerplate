@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "fastify-mcp-boilerplate": {
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "/absolute/path/to/your/mcp-server",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "8080",
+        "LOG_LEVEL": "info"
+      },
+      "description": "MCP server running as local process"
+    }
+  }
+} 
