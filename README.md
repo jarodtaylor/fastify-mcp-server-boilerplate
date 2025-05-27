@@ -6,14 +6,14 @@ Built on [fastify-mcp](https://github.com/haroldadmin/fastify-mcp) for robust MC
 
 ## **What You Get**
 
-| Tool | Purpose | Why Not Alternatives? |  |
-| --- | --- | --- | --- |
-| [**fastify-mcp**](https://github.com/haroldadmin/fastify-mcp) | MCP Protocol Integration | Handles all MCP server logic, session management, and transports. The heavy lifter! |  |
-| **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |  |
-| **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |  |
-| **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |  |
-| **pino** | Logging | Fastest JSON logger, pretty dev mode, production-ready structured logs |  |
-| **Docker** | Deployment | Multi-stage builds, security hardened, production optimized |  |
+| Tool | Purpose | Why Not Alternatives? |
+| --- | --- | --- |
+| [**fastify-mcp**](https://github.com/haroldadmin/fastify-mcp) | MCP Protocol Integration | Handles all MCP server logic, session management, and transports. The heavy lifter! |
+| **Biome** | Linting + Formatting | Replaces ESLint + Prettier + import sorting. 10-100x faster, zero config |
+| **tsup** | Bundling | esbuild-powered. 10x faster than webpack/rollup, handles ESM perfectly |
+| **Fastify** | HTTP Server | 3x faster than Express, built-in TypeScript support, plugin ecosystem |
+| **pino** | Logging | Fastest JSON logger, pretty dev mode, production-ready structured logs |
+| **Docker** | Deployment | Multi-stage builds, security hardened, production optimized |
 
 ## Features
 
